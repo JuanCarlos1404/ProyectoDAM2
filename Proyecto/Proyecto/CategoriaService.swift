@@ -10,8 +10,8 @@ import Alamofire
 
 class CategoriaService {
     static let shared = CategoriaService()
-    
     private let baseURL = "https://api.escuelajs.co/api/v1/categories"
+    
     
     func fetchCategoria() async throws -> [Categoria] {
         try await withCheckedThrowingContinuation{ conuation in
@@ -19,8 +19,8 @@ class CategoriaService {
                 .validate()
                 .responseDecodable(of: [Categoria].self) { response in
                     switch response.result {
-                    case .success(let users):
-                        conuation.resume(returning: users)
+                    case .success(let Categoria):
+                        conuation.resume(returning: Categoria)
                     case .failure(let error):
                         conuation.resume(throwing: error)
                     }

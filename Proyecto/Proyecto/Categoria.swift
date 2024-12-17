@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Categoria {
+struct Categoria : Decodable {
     let id : Int
     let nombre : String
 }
